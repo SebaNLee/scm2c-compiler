@@ -1,6 +1,13 @@
-[![✗](https://img.shields.io/badge/Release-v2.0.0-ffb600.svg?style=for-the-badge)](https://github.com/agustin-golmar/Flex-Bison-Compiler/releases)
+<!-- 
+TODO readme
 
-[![✗](https://github.com/agustin-golmar/Flex-Bison-Compiler/actions/workflows/pipeline.yaml/badge.svg?branch=production)](https://github.com/agustin-golmar/Flex-Bison-Compiler/actions/workflows/pipeline.yaml)
+credits:
+https://github.com/agustin-golmar/Flex-Bison-Compiler/tree/v2.0.0
+
+
+ -->
+
+
 
 # Flex-Bison-Compiler
 
