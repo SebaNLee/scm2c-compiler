@@ -16,6 +16,7 @@ https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form
 https://en.wikipedia.org/wiki/Abstract_syntax_tree
 https://en.wikipedia.org/wiki/Compiler
 
+https://en.wikipedia.org/wiki/Counter_machine
 https://github.com/mzahnd/apuntes-9335-logica-computacional/blob/main/anexo/Lenguaje-S.pdf
 
 
