@@ -1,0 +1,6 @@
+INC r1
+INC r1
+INC r2
+JE r1, r2, 5
+JE r1, r1, 2
+PRINT r2
