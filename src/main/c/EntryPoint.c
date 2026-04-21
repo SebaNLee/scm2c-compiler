@@ -36,7 +36,7 @@ const int main(const int length, const char ** arguments) {
 	if (compilationStatus == SUCCEEDED) {
 		// ----------------------------------------------------------------------------------------
 		// Beginning of the Backend... ------------------------------------------------------------
-		logDebugging(logger, "Computing expression value...");
+		logDebugging(logger, "Computing Succesor Counter Machine instructions...");
 		ComputationResult computationResult = executeCalculator(&compilerState);
 		if (computationResult.succeeded) {
 			compilerState.value = computationResult.value;
