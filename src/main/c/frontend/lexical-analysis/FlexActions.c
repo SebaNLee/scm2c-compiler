@@ -69,7 +69,6 @@ CompilationStatus RegisterLexemeAction() {
 	return status;
 }
 
-
 CompilationStatus IntegerLexemeAction() {
 	Token * token = createToken(_lexicalAnalyzer, INTEGER);
 	token->semanticValue->integer = atoi(token->lexeme);
