@@ -55,13 +55,13 @@ static int _countInstructions(Instruction * instruction) {
  */
 static void _generateInstruction(const unsigned int indentationLevel, Instruction * instruction, int count) {
 	switch (instruction->type) {
-		case INC:
+		case INST_INC:
 			_output(indentationLevel, "r[%d]++;\n", instruction->inc.reg);
 			break;
-		case CLR:
+		case INST_CLR:
 			_output(indentationLevel, "r[%d] = 0;\n", instruction->clr.reg);
 			break;
-		case JE:
+		case INST_JE:
 			if (instruction->je.target >= 0 && instruction->je.target < count)
 			{
 				_output(indentationLevel, "if (r[%d] == r[%d]) goto L%d;\n", instruction->je.reg1, instruction->je.reg2, instruction->je.target);
@@ -70,7 +70,7 @@ static void _generateInstruction(const unsigned int indentationLevel, Instructio
 				_output(indentationLevel, "if (r[%d] == r[%d]) return L%d;\n", instruction->je.reg1, instruction->je.reg2, count);
 			}
 			break;
-		case PRINT:
+		case INST_PRINT:
 			_output(indentationLevel, "printf(\"%%d\\n\", r[%d]);\n", instruction->print.reg);
 			break;
 		default:

@@ -28,10 +28,10 @@ typedef struct Program Program;
  */
 
 enum InstructionType {
-	INC,
-	CLR,
-	JE,
-	PRINT
+	INST_INC,
+	INST_CLR,
+	INST_JE,
+	INST_PRINT
 };
 
 struct Instruction {

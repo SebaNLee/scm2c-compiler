@@ -39,7 +39,7 @@ static void _logSyntacticAnalyzerAction(const char * functionName) {
 Instruction * IncInstructionSemanticAction(int reg) {
 	_logSyntacticAnalyzerAction(__FUNCTION__);
 	Instruction * instruction = malloc(sizeof(Instruction));
-	instruction->type = INC;
+	instruction->type = INST_INC;
 	instruction->inc.reg = reg;
 	instruction->next = NULL; // instruction->next is managed by BisonGrammar.y
 	return instruction;
@@ -48,7 +48,7 @@ Instruction * IncInstructionSemanticAction(int reg) {
 Instruction * ClrInstructionSemanticAction(int reg) {
 	_logSyntacticAnalyzerAction(__FUNCTION__);
 	Instruction * instruction = malloc(sizeof(Instruction));
-	instruction->type = CLR;
+	instruction->type = INST_CLR;
 	instruction->clr.reg = reg;
 	instruction->next = NULL; // instruction->next is managed by BisonGrammar.y
 	return instruction;
@@ -57,7 +57,7 @@ Instruction * ClrInstructionSemanticAction(int reg) {
 Instruction * JeInstructionSemanticAction(int reg1, int reg2, int target) {
 	_logSyntacticAnalyzerAction(__FUNCTION__);
 	Instruction * instruction = malloc(sizeof(Instruction));
-	instruction->type = JE;
+	instruction->type = INST_JE;
 	instruction->je.reg1 = reg1;
 	instruction->je.reg2 = reg2;
 	instruction->je.target = target;
@@ -68,7 +68,7 @@ Instruction * JeInstructionSemanticAction(int reg1, int reg2, int target) {
 Instruction * PrintInstructionSemanticAction(int reg) {
 	_logSyntacticAnalyzerAction(__FUNCTION__);
 	Instruction * instruction = malloc(sizeof(Instruction));
-	instruction->type = PRINT;
+	instruction->type = INST_PRINT;
 	instruction->print.reg = reg;
 	instruction->next = NULL; // instruction->next is managed by BisonGrammar.y
 	return instruction;
