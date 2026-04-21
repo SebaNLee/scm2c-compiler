@@ -36,50 +36,48 @@ static void _logSyntacticAnalyzerAction(const char * functionName) {
 
 /* PUBLIC FUNCTIONS */
 
-Constant * IntegerConstantSemanticAction(const int value) {
+Instruction * IncInstructionSemanticAction(int reg) {
 	_logSyntacticAnalyzerAction(__FUNCTION__);
-	Constant * constant = calloc(1, sizeof(Constant));
-	constant->value = value;
-	return constant;
+	Instruction * instruction = malloc(sizeof(Instruction));
+	instruction->type = INC;
+	instruction->inc.reg = reg;
+	instruction->next = NULL; // instruction->next is managed by BisonGrammar.y
+	return instruction;
 }
 
-Expression * ArithmeticExpressionSemanticAction(Expression * leftExpression, Expression * rightExpression, ExpressionType type) {
+Instruction * ClrInstructionSemanticAction(int reg) {
 	_logSyntacticAnalyzerAction(__FUNCTION__);
-	Expression * expression = calloc(1, sizeof(Expression));
-	expression->leftExpression = leftExpression;
-	expression->rightExpression = rightExpression;
-	expression->type = type;
-	return expression;
+	Instruction * instruction = malloc(sizeof(Instruction));
+	instruction->type = CLR;
+	instruction->clr.reg = reg;
+	instruction->next = NULL; // instruction->next is managed by BisonGrammar.y
+	return instruction;
 }
 
-Expression * FactorExpressionSemanticAction(Factor * factor) {
+Instruction * JeInstructionSemanticAction(int reg1, int reg2, int target) {
 	_logSyntacticAnalyzerAction(__FUNCTION__);
-	Expression * expression = calloc(1, sizeof(Expression));
-	expression->factor = factor;
-	expression->type = FACTOR;
-	return expression;
+	Instruction * instruction = malloc(sizeof(Instruction));
+	instruction->type = JE;
+	instruction->je.reg1 = reg1;
+	instruction->je.reg2 = reg2;
+	instruction->je.target = target;
+	instruction->next = NULL; // instruction->next is managed by BisonGrammar.y
+	return instruction;
 }
 
-Factor * ConstantFactorSemanticAction(Constant * constant) {
+Instruction * PrintInstructionSemanticAction(int reg) {
 	_logSyntacticAnalyzerAction(__FUNCTION__);
-	Factor * factor = calloc(1, sizeof(Factor));
-	factor->constant = constant;
-	factor->type = CONSTANT;
-	return factor;
+	Instruction * instruction = malloc(sizeof(Instruction));
+	instruction->type = PRINT;
+	instruction->print.reg = reg;
+	instruction->next = NULL; // instruction->next is managed by BisonGrammar.y
+	return instruction;
 }
 
-Factor * ExpressionFactorSemanticAction(Expression * expression) {
-	_logSyntacticAnalyzerAction(__FUNCTION__);
-	Factor * factor = calloc(1, sizeof(Factor));
-	factor->expression = expression;
-	factor->type = EXPRESSION;
-	return factor;
-}
-
-Program * ExpressionProgramSemanticAction(Expression * expression) {
+Program * ProgramSemanticAction(Instruction * instruction) {
 	_logSyntacticAnalyzerAction(__FUNCTION__);
 	Program * program = calloc(1, sizeof(Program));
-	program->expression = expression;
+	program->first = instruction;
 	_compilerState->abstractSyntaxtTree = program;
 	return program;
 }
