@@ -14,65 +14,59 @@ ModuleDestructor initializeAbstractSyntaxTreeModule();
  * person, but without the madness).
  */
 
-typedef enum ExpressionType ExpressionType;
-typedef enum FactorType FactorType;
+typedef enum InstructionType InstructionType;
 
-typedef struct Constant Constant;
-typedef struct Expression Expression;
-typedef struct Factor Factor;
+typedef struct Instruction Instruction;
 typedef struct Program Program;
 
 /**
  * Node types for the Abstract Syntax Tree (AST).
+ * 
+ * Note:
+ * In this case, this would be a Degenerate Tree (a.k.a. linked list). Lol.
+ * Just for pedagogic reasons will mantain the tree structure, although inefficient.
  */
 
-enum ExpressionType {
-	ADDITION,
-	DIVISION,
-	FACTOR,
-	MULTIPLICATION,
-	SUBTRACTION
+enum InstructionType {
+	CLR,
+	INC,
+	JE,
+	PRINT
 };
 
-enum FactorType {
-	CONSTANT,
-	EXPRESSION
-};
-
-struct Constant {
-	int value;
-};
-
-struct Factor {
+struct Instruction {
+	Instruction * next;
+	InstructionType type;
 	union {
-		Constant * constant;
-		Expression * expression;
-	};
-	FactorType type;
-};
-
-struct Expression {
-	union {
-		Factor * factor;
 		struct {
-			Expression * leftExpression;
-			Expression * rightExpression;
-		};
+			int reg;
+		} clr;
+
+		struct {
+			int reg;
+		} inc;
+
+		struct {
+			int reg1;
+			int reg2;
+			int target;
+		} je;
+
+		struct {
+			int reg;
+		} print;
 	};
-	ExpressionType type;
 };
 
 struct Program {
-	Expression * expression;
+	Instruction * first;
 };
 
 /**
  * Node recursive super-duper-trambolik-destructors.
  */
 
-void destroyConstant(Constant * constant);
-void destroyExpression(Expression * expression);
-void destroyFactor(Factor * factor);
+void destroyInstruction(Instruction * instruction);
 void destroyProgram(Program * program);
 
 #endif
