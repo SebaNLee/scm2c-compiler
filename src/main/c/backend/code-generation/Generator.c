@@ -5,6 +5,7 @@
 const char _indentationCharacter = ' ';
 const char _indentationSize = 4;
 static Logger * _logger = NULL;
+static FILE * _outputFile = NULL;
 
 /** Shutdown module's internal state. */
 void _shutdownGeneratorModule() {
@@ -125,8 +126,14 @@ static void _output(const unsigned int indentationLevel, const char * const form
 	va_start(arguments, format);
 	char * indentation = _indentation(indentationLevel);
 	char * effectiveFormat = concatenate(2, indentation, format);
+	va_list copy;
+	va_copy(copy, arguments);
 	vfprintf(stdout, effectiveFormat, arguments);
 	fflush(stdout);
+	if (_outputFile != NULL) {
+		vfprintf(_outputFile, effectiveFormat, copy);
+		fflush(_outputFile);
+	}
 	free(effectiveFormat);
 	free(indentation);
 	va_end(arguments);
@@ -136,8 +143,19 @@ static void _output(const unsigned int indentationLevel, const char * const form
 
 void executeGenerator(CompilerState * compilerState) {
 	logDebugging(_logger, "Generating final output...");
+
+	_outputFile = fopen("program/output.c", "w");
+	if (_outputFile == NULL) {
+		logError(_logger, "Cannot open output file.");
+		return;
+	}
+
 	_generatePrologue();
 	_generateProgram(compilerState->abstractSyntaxtTree);
 	_generateEpilogue();
+
+	fclose(_outputFile);
+	_outputFile = NULL;
+
 	logDebugging(_logger, "Generation is done.");
 }
