@@ -28,8 +28,8 @@ typedef struct Program Program;
  */
 
 enum InstructionType {
-	CLR,
 	INC,
+	CLR,
 	JE,
 	PRINT
 };
