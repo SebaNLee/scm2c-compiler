@@ -18,7 +18,7 @@ extern CompilationStatus InstructionLexemeAction(TokenLabel label);
 extern CompilationStatus RegisterLexemeAction();
 extern CompilationStatus IntegerLexemeAction();
 extern CompilationStatus CommaLexemeAction();
-extern CompilationStatus NewlineLexemeAction()
+extern CompilationStatus NewlineLexemeAction();
 extern CompilationStatus IgnoredLexemeAction();
 extern CompilationStatus UnknownLexemeAction();
 extern CompilationStatus EOFLexemeAction();
