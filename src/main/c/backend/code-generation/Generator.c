@@ -77,6 +77,8 @@ static void _generateInstruction(const unsigned int indentationLevel, Instructio
 			logError(_logger, "The specified instruction type is unknown: %d", instruction->type);
 			break;
 	}
+
+	_output(indentationLevel, "\n");
 }
 
 /**
