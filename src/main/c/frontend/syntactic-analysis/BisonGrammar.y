@@ -24,16 +24,11 @@ void yyerror(const YYLTYPE * location, const char * message) {}
 %locations
 
 %union {
-	/** Terminals. */
-
+	/** There is no separaction of Terminals and Non-terminals. */
 	signed int integer;
 	TokenLabel token;
 
-	/** Non-terminals. */
-
-	Constant * constant;
-	Expression * expression;
-	Factor * factor;
+	Instruction * instruction;
 	Program * program;
 }
 
@@ -45,30 +40,22 @@ void yyerror(const YYLTYPE * location, const char * message) {}
  *
  * @see https://www.gnu.org/software/bison/manual/html_node/Destructor-Decl.html
  */
-%destructor { destroyConstant($$); } <constant>
-%destructor { destroyExpression($$); } <expression>
-%destructor { destroyFactor($$); } <factor>
+%destructor { destroyInstruction($$); } <instruction>
 
-/** Terminals. */
+/** There is no separaction of Terminals and Non-terminals. */
 %token <integer> INTEGER
-%token <token> ADD
-%token <token> CLOSE_BRACE
-%token <token> CLOSE_COMMENT
-%token <token> CLOSE_PARENTHESIS
-%token <token> DIV
-%token <token> MUL
-%token <token> OPEN_BRACE
-%token <token> OPEN_COMMENT
-%token <token> OPEN_PARENTHESIS
-%token <token> SUB
+%token <integer> REGISTER
+%token <token> INC
+%token <token> CLR
+%token <token> JE
+%token <token> PRINT
+%token <token> COMMA
+%token <token> NEWLINE
 
 %token <token> IGNORED
 %token <token> UNKNOWN
 
-/** Non-terminals. */
-%type <constant> constant
-%type <expression> expression
-%type <factor> factor
+%type <instruction> instruction
 %type <program> program
 
 /**
@@ -77,28 +64,21 @@ void yyerror(const YYLTYPE * location, const char * message) {}
  * @see https://en.cppreference.com/w/cpp/language/operator_precedence.html
  * @see https://www.gnu.org/software/bison/manual/html_node/Precedence.html
  */
-%left ADD SUB
-%left MUL DIV
+
+// Note: no associativity in Succesor Counter Machines :p.
 
 %%
 
 // IMPORTANT: To use λ in the following grammar, use the %empty symbol.
 
-program: expression											{ $$ = ExpressionProgramSemanticAction($1); }
+program: instruction												{ $$ = ProgramSemanticAction($1); }
 	;
 
-expression: expression[left] ADD expression[right]			{ $$ = ArithmeticExpressionSemanticAction($left, $right, ADDITION); }
-	| expression[left] DIV expression[right]				{ $$ = ArithmeticExpressionSemanticAction($left, $right, DIVISION); }
-	| expression[left] MUL expression[right]				{ $$ = ArithmeticExpressionSemanticAction($left, $right, MULTIPLICATION); }
-	| expression[left] SUB expression[right]				{ $$ = ArithmeticExpressionSemanticAction($left, $right, SUBTRACTION); }
-	| factor												{ $$ = FactorExpressionSemanticAction($1); }
-	;
-
-factor: OPEN_PARENTHESIS expression CLOSE_PARENTHESIS		{ $$ = ExpressionFactorSemanticAction($2); }
-	| constant												{ $$ = ConstantFactorSemanticAction($1); }
-	;
-
-constant: INTEGER											{ $$ = IntegerConstantSemanticAction($1); }
+instruction: INC REGISTER NEWLINE instruction						{ $$ = IncInstructionSemanticAction($2); $$->next = $4; }
+	| CLR REGISTER NEWLINE instruction								{ $$ = ClrInstructionSemanticAction($2); $$->next = $4; }
+	| JE REGISTER COMMA REGISTER COMMA INTEGER NEWLINE instruction	{ $$ = JeInstructionSemanticAction($2, $4, $6); $$->next = $8; }
+	| PRINT REGISTER NEWLINE instruction							{ $$ = PrintInstructionSemanticAction($2); $$->next = $4; }
+	| %empty														{ $$ = NULL; }
 	;
 
 %%
