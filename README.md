@@ -20,6 +20,16 @@ https://en.wikipedia.org/wiki/Counter_machine
 https://github.com/mzahnd/apuntes-9335-logica-computacional/blob/main/anexo/Lenguaje-S.pdf
 
 
+more resources:
+
+https://www.gnu.org/software/bison/manual/bison.html
+https://westes.github.io/flex/manual/
+https://gnuu.org/2009/09/18/writing-your-own-toy-compiler/
+https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form
+https://en.wikipedia.org/wiki/Abstract_syntax_tree
+https://en.wikipedia.org/wiki/Compiler
+https://en.wikipedia.org/wiki/Counter_machine
+https://www.youtube.com/watch?v=PXN7jTNGQIw
 
  -->
 
