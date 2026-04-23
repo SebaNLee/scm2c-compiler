@@ -1,30 +1,3 @@
-<!-- 
-TODO readme
-
-credits:
-https://github.com/agustin-golmar/Flex-Bison-Compiler/tree/v2.0.0
-
-
-
-resources:
-https://gnuu.org/2009/09/18/writing-your-own-toy-compiler/
-
-https://westes.github.io/flex/manual/
-https://www.gnu.org/software/bison/manual/bison.html
-
-https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form
-https://en.wikipedia.org/wiki/Abstract_syntax_tree
-https://en.wikipedia.org/wiki/Compiler
-
-https://en.wikipedia.org/wiki/Counter_machine
-https://github.com/mzahnd/apuntes-9335-logica-computacional/blob/main/anexo/Lenguaje-S.pdf
-
-
-
- -->
-
-
-
 # Flex-Bison-Compiler
 
 A base compiler example, developed with Flex and Bison.
@@ -148,4 +121,28 @@ A simple compiler from a Successor Counter Machine model (CLR, INC, JE) to C, im
 
 ## Bibliography and references
 
+<!-- 
+TODO readme
+
+credits:
+https://github.com/agustin-golmar/Flex-Bison-Compiler/tree/v2.0.0
+
+
+
+resources:
+https://gnuu.org/2009/09/18/writing-your-own-toy-compiler/
+
+https://westes.github.io/flex/manual/
+https://www.gnu.org/software/bison/manual/bison.html
+
+https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form
+https://en.wikipedia.org/wiki/Abstract_syntax_tree
+https://en.wikipedia.org/wiki/Compiler
+
+https://en.wikipedia.org/wiki/Counter_machine
+https://github.com/mzahnd/apuntes-9335-logica-computacional/blob/main/anexo/Lenguaje-S.pdf
+
+
+
+ -->
 
