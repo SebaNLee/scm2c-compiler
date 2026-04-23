@@ -108,6 +108,27 @@ A simple compiler from a Successor Counter Machine model (CLR, INC, JE) to C, im
 ## What is a Successor Counter Machine?
 
 
+### Instructions
+
+These are the available instructions of the SCM:
+
+| Instruction                                | Specification                                                                 |
+| :----------------------------------------- | :---------------------------------------------------------------------------- |
+| `INC <register>`                           | Increments the value stores in the register by 1.                             |
+| `CLR <register>`                           | Sets the value of the register to 0.                                          |
+| `JE <register>, <register>, <instruction>` | Jumps to the specified instruction if both registers contains the same value. |
+| `PRINT <register>`                         | Prints to STDOUT the stored value of the register.                            |
+
+Where: 
+
+- `<register>` denotes a register of the form rx, where $x \in \mathbb{N}$ (e.g., r0, r1, r2, ...).
+-  `<instruction>` denotes the $i$-th instruction in the program.
+
+> Note: If the instruction index specified in `JE` is greater than the existing instructions, the program terminates.
+
+
+
+
 
 ## Devs
 
