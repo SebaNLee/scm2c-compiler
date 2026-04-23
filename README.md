@@ -20,16 +20,6 @@ https://en.wikipedia.org/wiki/Counter_machine
 https://github.com/mzahnd/apuntes-9335-logica-computacional/blob/main/anexo/Lenguaje-S.pdf
 
 
-more resources:
-
-https://www.gnu.org/software/bison/manual/bison.html
-https://westes.github.io/flex/manual/
-https://gnuu.org/2009/09/18/writing-your-own-toy-compiler/
-https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form
-https://en.wikipedia.org/wiki/Abstract_syntax_tree
-https://en.wikipedia.org/wiki/Compiler
-https://en.wikipedia.org/wiki/Counter_machine
-https://www.youtube.com/watch?v=PXN7jTNGQIw
 
  -->
 
@@ -133,3 +123,29 @@ To trigger an automatic integration on every push or PR (_Pull Request_), you mu
 * [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 * [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
 * [Yash](https://marketplace.visualstudio.com/items?itemName=daohong-emilio.yash)
+
+
+
+
+
+# Successor Counter Machine to C Compiler
+
+A simple compiler from a Successor Counter Machine model (CLR, INC, JE) to C, implemented in C using Flex/Bison. 
+
+## What is a Successor Counter Machine?
+
+
+
+## Devs
+
+
+
+
+
+
+
+
+
+## Bibliography and references
+
+
