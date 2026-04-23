@@ -9,5 +9,4 @@ INPUT="$1"
 shift 1
 cat "$INPUT" | ".build/Flex-Bison-Compiler" "$@"
 
-# rename generated .c
 mv program/output.c "$INPUT".c
