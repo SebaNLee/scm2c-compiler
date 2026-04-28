@@ -24,6 +24,7 @@ BisonParser.c
 BisonParser.h
 FlexScanner.c
 FlexScanner.h
+/program/*.out
 
 # Personal tracker
 TODO.md
