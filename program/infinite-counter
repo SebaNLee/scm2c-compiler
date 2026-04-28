@@ -1,0 +1,3 @@
+PRINT r1
+INC r1
+JE r1, r1, 0
