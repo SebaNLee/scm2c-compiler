@@ -1,0 +1,34 @@
+CLR r0
+INC r1
+PRINT r0
+CLR r4
+CLR r3
+JE r3, r0, 9
+INC r4
+INC r3
+JE r0, r0, 5
+CLR r0
+CLR r3
+JE r3, r1, 15
+INC r0
+INC r3
+JE r0, r0, 11
+CLR r2
+CLR r3
+JE r3, r0, 21
+INC r2
+INC r3
+JE r0, r0, 17
+CLR r3
+JE r3, r4, 26
+INC r2
+INC r3
+JE r0, r0, 22
+CLR r1
+CLR r3
+JE r3, r2, 32
+INC r1
+INC r3
+JE r0, r0, 28
+PRINT r0
+JE r0, r0, 3
