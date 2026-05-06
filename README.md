@@ -142,28 +142,24 @@ Where:
 
 ## Bibliography and references
 
-<!-- 
-TODO readme
+#### Main references
 
-credits:
-https://github.com/agustin-golmar/Flex-Bison-Compiler/tree/v2.0.0
+Compiler based on Flex-Bison-Compiler by Agustín Golmar [[GitHub](https://github.com/agustin-golmar/Flex-Bison-Compiler)]
 
+Writing Your Own Toy Compiler Using Flex, Bison and LLVM by Loren Segal [[gnuu.org](https://gnuu.org/2009/09/18/writing-your-own-toy-compiler/)]
 
+#### Aditional references
 
-resources:
-https://gnuu.org/2009/09/18/writing-your-own-toy-compiler/
+Lexical Analysis With Flex [[docs](https://westes.github.io/flex/manual/)]
 
-https://westes.github.io/flex/manual/
-https://www.gnu.org/software/bison/manual/bison.html
+Bison Mnaul [[docs](https://www.gnu.org/software/bison/manual/bison.html)]
 
-https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form
-https://en.wikipedia.org/wiki/Abstract_syntax_tree
-https://en.wikipedia.org/wiki/Compiler
+Counter machine [[Wikipedia](https://en.wikipedia.org/wiki/Counter_machine)]
 
-https://en.wikipedia.org/wiki/Counter_machine
-https://github.com/mzahnd/apuntes-9335-logica-computacional/blob/main/anexo/Lenguaje-S.pdf
+Compiler [[Wikipedia](https://en.wikipedia.org/wiki/Compiler)]
 
+Backus-Naur form [[Wikipedia](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form)]
 
+Abstract syntax tree [[Wikipedia](https://en.wikipedia.org/wiki/Abstract_syntax_tree)]
 
- -->
-
+Lenguaje S [[GitHub](https://github.com/mzahnd/apuntes-9335-logica-computacional/blob/main/anexo/Lenguaje-S.pdf)]
